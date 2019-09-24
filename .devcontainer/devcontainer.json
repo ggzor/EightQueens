@@ -1,0 +1,12 @@
+{
+	"name": "SWIPL",
+	"context": "..",
+	"dockerFile": "Dockerfile",
+	"settings": { 
+        "files.associations": { "*.pl": "prolog", "*.dlv": "prolog" }
+	},
+	"runArgs": [ "-u", "vscode" ],
+	"extensions": [
+		"arthurwang.vsc-prolog"
+	]
+}
