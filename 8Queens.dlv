@@ -1,17 +1,14 @@
 queen(1..#maxint).
 
-place(X, 1) v place(X, 2) 
-    v place(X, 3) v place(X, 4) 
-    v place(X, 5) v place(X, 6) 
+place(X, 1) v place(X, 2)
+    v place(X, 3) v place(X, 4)
+    v place(X, 5) v place(X, 6)
     v place(X, 7) v place(X, 8) :- queen(X).
 
-canTakeDiagonal(X1, Y1, X2, Y2) :- 
-    #int(X1), #int(Y1), #int(X2), #int(Y2), #int(Z),
-    +(X1, Z, X2), +(Y2, Z, Y1).
-
-canTakeDiagonal(X1, Y1, X2, Y2) :- 
-    #int(X1), #int(Y1), #int(X2), #int(Y2), #int(Z),
-    +(X1, Z, X2), +(Y1, Z, Y2).
-
 :- X1 != X2, place(X1, Y), place(X2, Y).
-:- X1 != X2, place(X1, Y1), place(X2, Y2), canTakeDiagonal(X1, Y1, X2, Y2).
+
+:- X1 != X2, place(X1, Y1), place(X2, Y2),
+    #int(Z), +(X1, Z, X2), +(Y2, Z, Y1).
+
+:- X1 != X2, place(X1, Y1), place(X2, Y2),
+    #int(Z), +(X1, Z, X2), +(Y1, Z, Y2).
